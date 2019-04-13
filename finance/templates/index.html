@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+
+{% block main %}
+
+    <h1>Portfolio</h1>
+
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Shares</th>
+            <th>Price</th>
+            <th>TOTAL</th>
+          </tr>
+         </thead>
+    {% for stocks_owned in stocks_owned %}
+        <tr>
+            <td>{{ stocks_owned.symbol }}</td>
+            <td>{{ stocks_owned.name }}</td>
+            <td>{{ stocks_owned.shares_owned }}</td>
+            <td>{{ stocks_owned.price }}</td>
+            <td>{{ stocks_owned.total }}</td>
+        </tr>
+    {% endfor %}
+        <tr>
+            <td><span class="invested">CASH</span></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><span class="invested">{{ cash }}</span></td>
+        </tr>
+        <tr>
+            <td><span class="total">TOTAL</span></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><span class="total">{{ grand_total }}</span></td>
+        </tr>
+
+    </table>
+
+{% endblock %}
